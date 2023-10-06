@@ -2,18 +2,25 @@ package org.example;
 
 // Press ⇧ twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
-public class Main {
-    public static void main(String[] args) {
-        // Press ⌥⏎ with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+public class BuilderPatternExample {
+   public static void main(String[] args){
 
-        // Press ⌃R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+       Waiter waiter = new Waiter();
 
-            // Press ⌃D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing ⌘F8.
-            System.out.println("i = " + i);
-        }
-    }
+       //Create Margherita pizza
+
+       PizzaBuilder margheritaBuilder = new MargheritaPizzaBuilder();
+      waiter.setPizzaBuilder(margheritaBuilder);
+      waiter.constructPizza();
+      Pizza margheritaPizza = waiter.getPizza();
+        margheritaPizza.describePizza();
+
+        //Create spicy pizza
+        PizzaBuilder spicyPizzaBuilder = new SpicyPizzaBuilder();
+        waiter.setPizzaBuilder(spicyPizzaBuilder);
+        waiter.constructPizza();
+        Pizza spicyPizza = waiter.getPizza();
+        spicyPizza.describePizza();
+
+   }
 }
